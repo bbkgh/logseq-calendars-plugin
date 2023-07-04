@@ -236,6 +236,9 @@ function parseLocation(rawLocation){
   const matches = rawLocation.match(urlRegexSafe());
   var parsed = rawLocation;
   var linkDesc;
+  if (!matches){
+    return parsed;
+  }
   for (const match of matches) {
     try{
       var url = new URL(match);
