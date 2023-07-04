@@ -16,7 +16,7 @@ const settingsTemplate: SettingSchemaDesc[] = [
   {
     key: "template",
     type: "string",
-    default: "{Start} - {End}: {Title}",
+    default: "TODO {Start} - {End}: {Title}",
     title: "Customizing the Event's Insertion",
     description:
       "The first block that is inserted right under the calendar name for each event. You can use placeholder variables to customize the block. The following variables are available: {Description}, {Date}, {Start}, {End}, {Title}, {Location}, {RawLocation}",
@@ -269,7 +269,7 @@ function templateFormatter(
   if (description == "") {
     properDescription = "No Description";
   } else {
-    properDescription = description;
+    properDescription = description.split('\n')[0];
   }
   if (location == "") {
     properLocation = "No Location";
